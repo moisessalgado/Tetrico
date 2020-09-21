@@ -29,14 +29,11 @@ func get_blocks():
 
 func get_blocks_positions():
 	var positions = []
-	positions.append(block1.position + self.position)
-	positions.append(block2.position + self.position)
-	positions.append(block3.position + self.position)
-	positions.append(block4.position + self.position)
+	positions.append(block1.global_position)
+	positions.append(block2.global_position)
+	positions.append(block3.global_position)
+	positions.append(block4.global_position)
 	return positions
-
-func get_blocks_rotation():
-	return self.rotation
 	
 func move_down():
 	var collision = move_and_collide(Vector2(0, block_size))

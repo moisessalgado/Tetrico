@@ -41,11 +41,7 @@ func _on_TimeToMoveDown_timeout():
 	if tetrominio != null:
 		collision = tetrominio.move_down()
 		if collision:
-#			var blocks = tetrominio.get_blocks()
-#			var blocks_positions = tetrominio.get_blocks_positions()
-#			var blocks_rotation = tetrominio.get_blocks_rotation()
-#			walls.build_blocks(blocks, blocks_positions, blocks_rotation)
-			walls.build_blocks(tetrominio.copy)
+			walls.build_blocks(tetrominio)
 			tetrominio.destroy()
 			tetrominio = null
 			pass

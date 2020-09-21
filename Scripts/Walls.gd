@@ -30,23 +30,23 @@ func init(number_of_columns, number_of_rows):
 #			grid[row].append([])
 #	return grid
 
-func build_blocks(tetrominio_blocks, blocks_positions):
+func build_blocks(tetrominio):
+	var tetrominio_blocks = tetrominio.get_blocks()
+	var tetrominio_blocks_positions = tetrominio.get_blocks_positions()
 	for i in range(tetrominio_blocks.size()):
-		var block = tetrominio_blocks[i]
-		var block_position = blocks_positions[i]
-		var block_rotation = block.rotation_degrees
-		build_block(block, block_position, block_rotation)
+		var tetrominio_block = tetrominio_blocks[i]
+		var block_position = tetrominio_blocks_positions[i]
+		build_block(tetrominio_block, block_position)
 	check_for_competed_rows()
 #	remove_completed_rows()
 			
-func build_block(tetrominio_block, block_position, block_rotation):
-	var new_block = tetrominio_block.duplicate()
-	new_block.position = block_position
-	new_block.rotation_degrees = block_rotation
+func build_block(tetrominio_block, block_position):
+	var wall_block = tetrominio_block.duplicate()
+	wall_block.position = block_position
 	var block_column_number = int(block_position.x) / block_size
 	var block_row_number    = int(block_position.y) / block_size
 #	set_block_position(block_row_number, block_column_number)
-	add_block_shape_to_row(new_block, block_row_number)
+	add_block_shape_to_row(wall_block, block_row_number)
 
 #func set_block_position(block_row_number, block_column_number):
 #	self.blocks_grid[block_row_number][block_column_number] = 1
