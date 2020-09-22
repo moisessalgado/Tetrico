@@ -68,7 +68,9 @@ func create_block_row(row_number):
 # Parei aqui tentando verificar quais linhas estão completas
 func check_for_competed_rows():
 	var rows = blocks.get_children()
-	print(rows)
+	for row in rows:
+		print(row.name)
+	pass
 #	var completed_rows_numbers = []
 #	for row in self.blocks_grid:
 #		var blocks_in_row = 0
